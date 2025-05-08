@@ -40,7 +40,9 @@ st.title("🦟 Dengue Surveillance Dashboard - (2013–2025) - Rawalpindi (city)
 col1, col2 = st.columns([0.5, 1.5])
 
 with col1:
-    world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+#    world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+    world = gpd.read_file("https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson")
+
     pakistan = world[world.name == 'Pakistan']
     rawalpindi_bounds = box(72.95, 33.5, 73.15, 33.75)
     rawalpindi = gpd.GeoDataFrame({'name': ['Rawalpindi'], 'geometry': [rawalpindi_bounds]}, crs="EPSG:4326")
