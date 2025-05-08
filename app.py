@@ -123,7 +123,7 @@ with st.expander("🔍 View Raw Data (Filtered to Rawalpindi)"):
 st.markdown("## 🌐 Dengue Trends by Month and Age Group")
 
 # Load the data
-file_path = "Dengue Surveillance Data/Confirmed Patients 2013-2025.xlsx"
+file_path = "Confirmed Patients 2013-2025.xlsx"
 full_df = pd.read_excel(file_path, sheet_name="Confirmed Patients 2013-2025")
 
 # Month order for plotting
