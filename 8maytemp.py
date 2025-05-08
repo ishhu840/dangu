@@ -11,7 +11,7 @@ from shapely.geometry import box
 st.set_page_config(page_title="Dengue Surveillance - Rawalpindi (city)", layout="wide")
 
 def load_data():
-    file_path = "Dengue Surveillance Data/Confirmed Patients 2013-2025.xlsx"
+    file_path = "Confirmed Patients 2013-2025.xlsx"
     try:
         df = pd.read_excel(file_path, sheet_name="Confirmed Patients 2013-2025")
     except FileNotFoundError:
