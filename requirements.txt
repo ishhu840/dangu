@@ -1,10 +1,9 @@
 streamlit
-requests
 pandas
-plotly
-seaborn
+pydeck
 matplotlib
-statsmodels
+seaborn
+plotly
 geopandas
-box
+shapely
 openpyxl
