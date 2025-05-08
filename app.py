@@ -40,21 +40,7 @@ st.title("🦟 Dengue Surveillance Dashboard - (2013–2025) - Rawalpindi (city)
 col1, col2 = st.columns([0.5, 1.5])
 
 with col1:
-    
-    world = gpd.read_file("https://naturalearth.s3.amazonaws.com/110m_cultural/ne_110m_admin_0_countries.zip")
-    
-    st.write(world.columns)  # Debug: Show all column names
-    
-    # Try the correct column for country name
-    if 'admin' in world.columns:
-        pakistan = world[world['admin'] == 'Pakistan']
-    elif 'NAME' in world.columns:
-        pakistan = world[world['NAME'] == 'Pakistan']
-    else:
-        st.error("Country name column not found.")
-    
-   # world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
-    world = gpd.read_file("https://naturalearth.s3.amazonaws.com/110m_cultural/ne_110m_admin_0_countries.zip")
+    world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
     pakistan = world[world.name == 'Pakistan']
     rawalpindi_bounds = box(72.95, 33.5, 73.15, 33.75)
     rawalpindi = gpd.GeoDataFrame({'name': ['Rawalpindi'], 'geometry': [rawalpindi_bounds]}, crs="EPSG:4326")
