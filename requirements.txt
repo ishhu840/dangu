@@ -7,3 +7,4 @@ matplotlib
 statsmodels
 geopandas
 box
+openpyxl
