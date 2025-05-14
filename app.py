@@ -116,8 +116,8 @@ with col2:
     st.pyplot(fig)
 
 # Raw Data
-with st.expander("🔍 View Raw Data (Filtered to Rawalpindi)"):
-    st.dataframe(rawalpindi_df)
+#with st.expander("🔍 View Raw Data (Filtered to Rawalpindi)"):
+ #   st.dataframe(rawalpindi_df)
 
 
 st.markdown("## 🌐 Dengue Trends by Month and Age Group")
