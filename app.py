@@ -7,6 +7,36 @@ import plotly.express as px
 import geopandas as gpd
 from shapely.geometry import box
 
+hide_share_button = """
+    <style>
+    [data-testid="stToolbar"] {visibility: hidden;}
+    </style>
+"""
+st.markdown(hide_share_button, unsafe_allow_html=True)
+
+# --- Authentication ---
+def check_login():
+    if "authenticated" not in st.session_state:
+        st.session_state.authenticated = False
+
+    if not st.session_state.authenticated:
+        st.title("🔒 Login Required")
+
+        username = st.text_input("Username")
+        password = st.text_input("Password", type="password")
+        
+        if st.button("Login"):
+            if username == "strath" and password == "odon2025":  # Change credentials as needed
+                st.session_state.authenticated = True
+                st.success("Login successful!")
+                st.rerun()  # Refresh the app
+            else:
+                st.error("Invalid username or password")
+
+        st.stop()  # Prevent further execution until login
+
+check_login()  # Call the login function before proceeding
+
 # Set Streamlit page config
 st.set_page_config(page_title="Dengue Surveillance - Rawalpindi (city)", layout="wide")
 
