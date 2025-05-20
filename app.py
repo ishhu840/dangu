@@ -12,6 +12,9 @@ hide_share_button = """
     [data-testid="stToolbar"] {visibility: hidden;}
     </style>
 """
+# Set Streamlit page config
+st.set_page_config(page_title="Dengue Surveillance - Rawalpindi (city)", layout="wide")
+
 st.markdown(hide_share_button, unsafe_allow_html=True)
 
 # --- Authentication ---
@@ -37,8 +40,7 @@ def check_login():
 
 check_login()  # Call the login function before proceeding
 
-# Set Streamlit page config
-st.set_page_config(page_title="Dengue Surveillance - Rawalpindi (city)", layout="wide")
+
 
 def load_data():
     file_path = "Confirmed Patients 2013-2025.xlsx"
