@@ -113,8 +113,11 @@ map_data = rawalpindi_df[["Latitude", "Longitude"]].rename(columns={"Latitude": 
 # Set Mapbox token
 pdk.settings.mapbox_api_key = "pk.eyJ1IjoiaXNoaHU4NDAiLCJhIjoiY21kbmMyZGthMW8zaDJqczVvOWx2eDZqNCJ9.0kNg6DrWkruqUl-KyhZv4Q"
 
+# Use a public basemap style JSON URL to avoid Mapbox CORS issues
+MAP_STYLE = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
+
 st.pydeck_chart(pdk.Deck(
-    map_style='mapbox://styles/mapbox/light-v9',
+    map_style=MAP_STYLE,
     initial_view_state=pdk.ViewState(
         latitude=map_data["lat"].mean(),
         longitude=map_data["lon"].mean(),
