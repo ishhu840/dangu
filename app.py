@@ -111,17 +111,10 @@ st.subheader("📍 Geolocation of Confirmed Cases (Rawalpindi) - Small Red Dots"
 map_data = rawalpindi_df[["Latitude", "Longitude"]].rename(columns={"Latitude": "lat", "Longitude": "lon"})
 
 # Set Mapbox token
-# Set Mapbox token
-# ✅ Set Mapbox token
 pdk.settings.mapbox_api_key = "pk.eyJ1IjoiaXNoaHU4NDAiLCJhIjoiY21kbmMyZGthMW8zaDJqczVvOWx2eDZqNCJ9.0kNg6DrWkruqUl-KyhZv4Q"
 
-# ✅ Display debug data
-st.write("Sample map data:")
-st.write(map_data.head())
-
-# ✅ Fix style and render
 st.pydeck_chart(pdk.Deck(
-    map_style="mapbox://styles/mapbox/streets-v12",
+    map_style='mapbox://styles/mapbox/light-v9',
     initial_view_state=pdk.ViewState(
         latitude=map_data["lat"].mean(),
         longitude=map_data["lon"].mean(),
@@ -135,13 +128,10 @@ st.pydeck_chart(pdk.Deck(
             get_position='[lon, lat]',
             get_color='[255, 0, 0, 160]',
             get_radius=20,
-            pickable=True,
+            pickable=False,
         )
-    ],
-    tooltip={"text": "Lat: {lat}\nLon: {lon}"}
+    ]
 ))
-
-
 
 # Gender and Age Charts
 col1, col2 = st.columns(2)
@@ -283,6 +273,3 @@ footer = """
 st.write("\n" * 20)
 
 st.markdown(footer, unsafe_allow_html=True)
-
-
-
