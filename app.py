@@ -111,7 +111,7 @@ st.subheader("📍 Geolocation of Confirmed Cases (Rawalpindi) - Small Red Dots"
 map_data = rawalpindi_df[["Latitude", "Longitude"]].rename(columns={"Latitude": "lat", "Longitude": "lon"})
 
 # Set Mapbox token
-pdk.settings.mapbox_api_key = "pk.eyJ1IjoiaXNoaHU4NDAiLCJhIjoiY21kbmMyZGthMW8zaDJqczVvOWx2eDZqNCJ9.0kNg6DrWkruqUl-KyhZv4Q"
+pdk.settings.mapbox_api_key = "pk.eyJ1IjoiaXNoaHU4NDAiLCJhIjoiY21kbmNydzNpMTlqejJxczU0NG5lYmZkYyJ9.Dg8XhckyuQ7EFGQTP2oCfA"
 
 st.pydeck_chart(pdk.Deck(
     map_style='mapbox://styles/mapbox/light-v9',
