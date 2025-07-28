@@ -60,10 +60,6 @@ def load_data():
 # Load data
 df = load_data()
 
-# Set Mapbox token
-pdk.settings.mapbox_api_key = "pk.eyJ1IjoiaXNoaHU4NDAiLCJhIjoiY21kbmMyZGthMW8zaDJqczVvOWx2eDZqNCJ9.0kNg6DrWkruqUl-KyhZv4Q"
-
-
 # Define bounds and filter early (before use)
 lat_min, lat_max = 33.5, 33.8
 lon_min, lon_max = 72.9, 73.2
@@ -113,6 +109,9 @@ with col2:
 # Map
 st.subheader("📍 Geolocation of Confirmed Cases (Rawalpindi) - Small Red Dots")
 map_data = rawalpindi_df[["Latitude", "Longitude"]].rename(columns={"Latitude": "lat", "Longitude": "lon"})
+
+# Set Mapbox token
+pdk.settings.mapbox_api_key = "pk.eyJ1IjoiaXNoaHU4NDAiLCJhIjoiY21kbmMyZGthMW8zaDJqczVvOWx2eDZqNCJ9.0kNg6DrWkruqUl-KyhZv4Q"
 
 st.pydeck_chart(pdk.Deck(
     map_style='mapbox://styles/mapbox/light-v9',
