@@ -112,11 +112,16 @@ map_data = rawalpindi_df[["Latitude", "Longitude"]].rename(columns={"Latitude": 
 
 # Set Mapbox token
 # Set Mapbox token
+# ✅ Set Mapbox token
 pdk.settings.mapbox_api_key = "pk.eyJ1IjoiaXNoaHU4NDAiLCJhIjoiY21kbmMyZGthMW8zaDJqczVvOWx2eDZqNCJ9.0kNg6DrWkruqUl-KyhZv4Q"
 
-# Show map
+# ✅ Display debug data
+st.write("Sample map data:")
+st.write(map_data.head())
+
+# ✅ Fix style and render
 st.pydeck_chart(pdk.Deck(
-    map_style="mapbox://styles/mapbox/streets-v12",  # ✅ Use supported style
+    map_style="mapbox://styles/mapbox/streets-v12",
     initial_view_state=pdk.ViewState(
         latitude=map_data["lat"].mean(),
         longitude=map_data["lon"].mean(),
@@ -133,8 +138,9 @@ st.pydeck_chart(pdk.Deck(
             pickable=True,
         )
     ],
-    tooltip={"text": "Lat: {lat}, Lon: {lon}"}
+    tooltip={"text": "Lat: {lat}\nLon: {lon}"}
 ))
+
 
 
 # Gender and Age Charts
