@@ -43,6 +43,7 @@ check_login()  # Call the login function before proceeding
 
 
 def load_data():
+    
     file_path = "Confirmed Patients 2013-2025.xlsx"
     try:
         df = pd.read_excel(file_path, sheet_name="Confirmed Patients 2013-2025")
@@ -58,6 +59,10 @@ def load_data():
 
 # Load data
 df = load_data()
+
+# Set Mapbox token
+pdk.settings.mapbox_api_key = "pk.eyJ1IjoiaXNoaHU4NDAiLCJhIjoiY21kbmMyZGthMW8zaDJqczVvOWx2eDZqNCJ9.0kNg6DrWkruqUl-KyhZv4Q"
+
 
 # Define bounds and filter early (before use)
 lat_min, lat_max = 33.5, 33.8
